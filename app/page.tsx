@@ -452,6 +452,14 @@ export default function Home() {
             </p>
           </div>
 
+          <Image
+            className="section-visual work-visual"
+            src="/observability-panel.svg"
+            alt="Observability dashboard showing uptime, reduced detection time, lower alert noise, and a live signal graph"
+            width={960}
+            height={420}
+          />
+
           <div className="work-grid">
             <div className="work-card">
               <span>01</span>
@@ -572,6 +580,14 @@ export default function Home() {
             </p>
           </div>
 
+          <Image
+            className="section-visual hobby-visual"
+            src="/maker-lab.svg"
+            alt="Maker lab illustration showing electronics tinkering and a 3D printer"
+            width={960}
+            height={420}
+          />
+
           <div className="hobby-grid">
             {hobbies.map((hobby, index) => (
               <article
@@ -601,6 +617,14 @@ export default function Home() {
               <br />
               <em>production.</em>
             </h2>
+
+            <Image
+              className="section-visual books-visual"
+              src="/reading-desk.svg"
+              alt="Reading desk illustration with an open book and a quiet study space"
+              width={960}
+              height={420}
+            />
 
             <div className="current-read">
               <span className="current-read-label">CURRENT READ</span>

@@ -442,7 +442,8 @@ a {
   .stack-list span,
   .hobby-card,
   .contact-links a,
-  .hero-visual {
+  .hero-visual,
+  .section-visual {
     animation: none;
     opacity: 1;
     transform: none;
@@ -604,6 +605,26 @@ a {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.8;
+}
+
+.section-visual {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 64px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  opacity: 0.94;
+  transition:
+    border-color 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.section-visual:hover {
+  border-color: var(--cyan);
+  opacity: 1;
+  transform: translateY(-5px);
 }
 
 .work-grid {
@@ -783,6 +804,14 @@ a {
   line-height: 1.8;
 }
 
+.hobby-visual {
+  border-color: #302b35;
+}
+
+.hobby-visual:hover {
+  border-color: var(--amber);
+}
+
 .hobby-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -870,6 +899,15 @@ a {
   max-width: 620px;
   padding: 28px 0 0;
   border-top: 1px solid var(--line);
+}
+
+.books-visual {
+  margin: 0 0 42px;
+  border-color: #3a3030;
+}
+
+.books-visual:hover {
+  border-color: var(--amber);
 }
 
 .current-read-label {
@@ -1117,6 +1155,11 @@ footer {
   }
 
   .hero-visual {
+    border-radius: 7px;
+  }
+
+  .section-visual {
+    margin-top: 42px;
     border-radius: 7px;
   }
 

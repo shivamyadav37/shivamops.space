@@ -1,0 +1,25 @@
+<svg width="960" height="420" viewBox="0 0 960 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="420" rx="18" fill="#111014"/>
+  <path d="M0 326H960" stroke="#302B35"/>
+  <path d="M78 326L160 244H306L378 326" stroke="#FFBD5C" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M160 244V326M306 244V326" stroke="#FFBD5C" stroke-width="3"/>
+  <rect x="182" y="190" width="101" height="54" rx="8" fill="#1B1820" stroke="#57D8FF" stroke-width="3"/>
+  <circle cx="207" cy="217" r="8" fill="#B7FF4A"/>
+  <circle cx="237" cy="217" r="8" fill="#57D8FF"/>
+  <circle cx="267" cy="217" r="8" fill="#FFBD5C"/>
+  <path d="M233 190V139L286 96" stroke="#57D8FF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M286 96L333 139V190" stroke="#57D8FF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M286 96V54" stroke="#57D8FF" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="286" cy="45" r="9" fill="#B7FF4A"/>
+  <path d="M500 326V174H768V326" stroke="#B7FF4A" stroke-width="3"/>
+  <path d="M500 174L634 110L768 174" stroke="#B7FF4A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M548 326V236H720V326" stroke="#B7FF4A" stroke-width="3"/>
+  <path d="M570 236V199H698V236" stroke="#B7FF4A" stroke-width="3"/>
+  <path d="M603 199V178H665V199" stroke="#B7FF4A" stroke-width="3"/>
+  <path d="M634 178V154" stroke="#B7FF4A" stroke-width="3"/>
+  <circle cx="634" cy="145" r="9" fill="#FFBD5C"/>
+  <text x="48" y="54" fill="#57D8FF" font-family="monospace" font-size="12">/maker_lab</text>
+  <text x="790" y="54" fill="#8D9A98" font-family="monospace" font-size="12">build · test · repeat</text>
+  <text x="113" y="370" fill="#8D9A98" font-family="monospace" font-size="12">electronics</text>
+  <text x="566" y="370" fill="#8D9A98" font-family="monospace" font-size="12">3D printing</text>
+</svg>
