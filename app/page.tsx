@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const experience = [
   {
@@ -10,6 +10,7 @@ const experience = [
     company: "Pitney Bowes · Pune, India",
     description:
       "Incident Commander for business-critical shipping platforms. Rebuilt observability to cut MTTD 35% and alert noise 40%, owned GitLab delivery for 30–50 production deploys per week, and automated AWS operations across 10+ accounts.",
+    tags: ["AWS", "GitLab CI/CD", "Grafana", "Incident response"],
   },
   {
     period: "OCT 2025 — JAN 2026",
@@ -17,6 +18,7 @@ const experience = [
     company: "Syensqo · Pune, India",
     description:
       "Managed Azure AD identity lifecycle, SSO integrations, Conditional Access, MFA and RBAC across the organization.",
+    tags: ["Entra ID", "SSO", "RBAC", "MFA"],
   },
   {
     period: "SEP 2022 — OCT 2025",
@@ -24,6 +26,7 @@ const experience = [
     company: "Wipro · Pune, India",
     description:
       "Automated infrastructure across 100+ environments, defined SLOs, improved fault tolerance and reduced Keycloak upgrade downtime by 85% while maintaining 99.9% uptime.",
+    tags: ["Terraform", "Ansible", "Kubernetes", "SLOs"],
   },
   {
     period: "APR 2022 — JUN 2022",
@@ -31,79 +34,32 @@ const experience = [
     company: "Wipro · Gurgaon, India",
     description:
       "Deployed a Spring Boot and Angular application on AWS using VPC, CloudWatch, Lambda, S3, SQS, DynamoDB and IAM services.",
+    tags: ["AWS", "Spring Boot", "Angular", "CloudWatch"],
   },
 ];
 
 const stackGroups = [
-  {
-    title: "Cloud",
-    items: ["AWS", "Azure", "EC2", "VPC", "Lambda", "CloudWatch"],
-  },
-  {
-    title: "Kubernetes",
-    items: ["Kubernetes", "Docker", "Rancher", "Helm", "Longhorn"],
-  },
-  {
-    title: "Infrastructure & delivery",
-    items: ["Terraform", "Ansible", "GitLab CI/CD", "ArgoCD", "Jenkins", "GitHub Actions"],
-  },
-  {
-    title: "Observability",
-    items: ["Prometheus", "Grafana", "Loki", "Sumo Logic", "Site24x7"],
-  },
-  {
-    title: "Languages & systems",
-    items: ["Python", "Bash", "Git", "PostgreSQL", "MongoDB"],
-  },
-  {
-    title: "Security & AI",
-    items: ["Keycloak", "Entra ID", "RBAC", "MFA", "GitHub Copilot"],
-  },
+  { title: "Cloud", code: "01", items: ["AWS", "Azure", "EC2", "VPC", "Lambda", "CloudWatch"] },
+  { title: "Containers", code: "02", items: ["Kubernetes", "Docker", "Rancher", "Helm", "Longhorn"] },
+  { title: "Delivery", code: "03", items: ["Terraform", "Ansible", "GitLab CI/CD", "ArgoCD", "Jenkins", "GitHub Actions"] },
+  { title: "Observability", code: "04", items: ["Prometheus", "Grafana", "Loki", "Sumo Logic", "Site24x7"] },
+  { title: "Systems", code: "05", items: ["Python", "Bash", "Git", "PostgreSQL", "MongoDB"] },
+  { title: "Security + AI", code: "06", items: ["Keycloak", "Entra ID", "RBAC", "MFA", "GitHub Copilot"] },
 ];
 
 const focus = [
-  {
-    number: "01",
-    title: "Reliability",
-    text: "Improving SLO compliance, fault tolerance and operational readiness for production systems.",
-  },
-  {
-    number: "02",
-    title: "Automation",
-    text: "Replacing manual work with Terraform, Python, CI/CD automation and repeatable runbooks.",
-  },
-  {
-    number: "03",
-    title: "Observability",
-    text: "Turning metrics, logs and alerts into actionable signals that reduce detection and recovery time.",
-  },
+  ["01", "Reliability", "SLOs, fault tolerance and operational readiness for production systems."],
+  ["02", "Automation", "Terraform, Python, CI/CD and runbooks that remove repetitive work."],
+  ["03", "Observability", "Metrics, logs and alerts shaped into signals teams can act on."],
 ];
 
 const hobbies = [
-  {
-    title: "Systems thinking",
-    text: "Thinking deeply about reliable systems, operational clarity and what keeps production steady.",
-  },
-  {
-    title: "Homelab",
-    text: "Running small experiments at home to learn, break things safely and understand systems from the inside out.",
-  },
-  {
-    title: "Electronics tinkering",
-    text: "Taking circuits apart, following signals and learning by making small things work.",
-  },
-  {
-    title: "IoT",
-    text: "Connecting devices, sensors and everyday spaces to the systems behind them.",
-  },
-  {
-    title: "Reading & writing",
-    text: "Making room for books, notes and ideas that are worth slowing down to understand.",
-  },
-  {
-    title: "3D printing",
-    text: "Turning digital designs into physical objects and iterating until the idea fits in your hands.",
-  },
+  ["01", "Systems thinking", "Reliable systems, operational clarity and what keeps production steady."],
+  ["02", "Homelabbing", "Small experiments at home to learn, break things safely and understand systems from the inside out."],
+  ["03", "Electronics tinkering", "Taking circuits apart, following signals and learning by making small things work."],
+  ["04", "IoT", "Connecting devices, sensors and everyday spaces to the systems behind them."],
+  ["05", "Reading & writing", "Books, notes and ideas worth slowing down to understand."],
+  ["06", "3D printing", "Turning digital designs into physical objects and iterating until the idea fits in your hands."],
 ];
 
 const certifications = [
@@ -118,8 +74,8 @@ const certifications = [
 
 const navItems = [
   ["about", "About"],
-  ["experience", "Experience"],
   ["work", "Work"],
+  ["experience", "Experience"],
   ["stack", "Stack"],
   ["hobby", "Hobby"],
   ["books", "Books"],
@@ -127,576 +83,208 @@ const navItems = [
 ];
 
 const terminalStates = [
-  { command: "uptime", output: "production: stable" },
-  { command: "status --services", output: "all systems operational" },
-  { command: "incident_mode --status", output: "ready for production" },
+  ["uptime", "production: stable"],
+  ["status --services", "all systems operational"],
+  ["incident_mode --status", "ready for production"],
 ];
 
+function SectionMarker({ number, label }: { number: string; label: string }) {
+  return (
+    <div className="section-marker">
+      <span>{number}</span>
+      <i />
+      <strong>{label}</strong>
+    </div>
+  );
+}
+
+function Pipeline() {
+  return (
+    <div className="pipeline" aria-label="Delivery path from code to observability">
+      {["Git", "CI/CD", "Containers", "Kubernetes", "Observe"].map((item, index) => (
+        <div className="pipeline-node" key={item}>
+          <span className="pipeline-dot" />
+          <span>{item}</span>
+          {index < 4 && <b aria-hidden="true">→</b>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("experience");
+  const [activeSection, setActiveSection] = useState("about");
   const [terminalState, setTerminalState] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.documentElement.classList.add("motion-ready");
-
     const sections = navItems
       .map(([id]) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
-
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-
-        const visibleSection = entries
+        entries.forEach((entry) => entry.target.classList.toggle("is-visible", entry.isIntersecting));
+        const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visibleSection) {
-          setActiveSection(visibleSection.target.id);
-        }
+        if (visible) setActiveSection(visible.target.id);
       },
-      { rootMargin: "-30% 0px -55%", threshold: [0.1, 0.35, 0.7] },
+      { rootMargin: "-20% 0px -62%", threshold: [0.1, 0.35, 0.7] },
     );
-
     sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      observer.disconnect();
-      document.documentElement.classList.remove("motion-ready");
-    };
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
       setTerminalState((current) => (current + 1) % terminalStates.length);
     }, 4200);
-
     return () => window.clearInterval(interval);
   }, []);
 
-  const currentTerminalState = terminalStates[terminalState];
+  const [command, output] = terminalStates[terminalState];
 
   return (
     <main>
-      {/* NAVIGATION */}
       <nav className="nav">
         <div className="container nav-inner">
-          <a href="#" className="logo">
+          <a href="#top" className="logo" aria-label="Shivamops home">
             <span className="logo-mark">S</span>
-            <span>shivamops</span>
+            <span>SHIVAMOPS<span className="logo-dot">.</span></span>
           </a>
-
           <button
             className="mobile-menu-toggle"
             type="button"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
-            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+            onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            <span />
-            <span />
-            <span />
+            <span /><span /><span />
           </button>
-
           <div className={`nav-links ${mobileMenuOpen ? "is-open" : ""}`}>
-            {navItems.map(([id, label]) => (
+            {navItems.map(([id, label], index) => (
               <a
                 className={activeSection === id ? "active" : ""}
                 href={`#${id}`}
                 key={id}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {label}
+                <small>0{index + 1}</small>{label}
               </a>
             ))}
-            <a
-              href="/resume/Shivam-SRE-Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Resume ↗
+            <a href="/resume/Shivam-SRE-Resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)}>
+              <small>↓</small>Resume
             </a>
           </div>
-
-          <a
-            href="https://github.com/shivamyadav37"
-            target="_blank"
-            rel="noreferrer"
-            className="nav-github"
-          >
-            GitHub ↗
-          </a>
+          <a className="nav-status" href="#contact"><span />Open to serious systems</a>
         </div>
       </nav>
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="container hero-grid">
-          <div className="hero-content">
-            <div className="eyebrow">
-              <span className="status-dot" />
-              SITE RELIABILITY ENGINEER · PUNE, INDIA
-            </div>
-
-            <h1>
-              Shivam
-              <br />
-              <span>Yadav.</span>
-            </h1>
-
-            <p className="hero-role">
-              SRE <span>·</span> DevOps <span>·</span> TechOps
-            </p>
-
-            <p className="hero-description">
-              I build, automate and operate highly available cloud-native systems.
-              <br />
-              Kubernetes, AWS, observability and everything between code and production.
-            </p>
-
+      <section className="hero" id="top">
+        <div className="hero-grid technical-grid" aria-hidden="true" />
+        <div className="container hero-layout">
+          <div className="hero-copy">
+            <div className="eyebrow"><span className="status-dot" />SRE / DEVOPS / CLOUD / AUTOMATION</div>
+            <p className="hero-index">SHIVAM YADAV <span>{"//"}</span> ENGINEERING PROFILE 2026</p>
+            <h1>Building systems<br />that don&apos;t wake<br /><em>you up at 3am.</em></h1>
+            <p className="hero-description">I build, automate and operate highly available cloud-native systems across Kubernetes, AWS, delivery platforms and observability.</p>
             <div className="hero-actions">
-              <a href="#contact" className="button button-primary">
-                Let&apos;s connect <span>↗</span>
-              </a>
-
-              <a
-                href="/resume/Shivam-SRE-Resume.pdf"
-                download
-                className="button button-secondary"
-              >
-                Resume <span>↓</span>
-              </a>
-
-              <a
-                href="https://github.com/shivamyadav37"
-                target="_blank"
-                rel="noreferrer"
-                className="button button-secondary"
-              >
-                GitHub
-              </a>
+              <a href="#contact" className="button button-primary">Start a conversation <span>↗</span></a>
+              <a href="/resume/Shivam-SRE-Resume.pdf" download className="button button-secondary">Download resume <span>↓</span></a>
             </div>
           </div>
 
-          <div className="hero-side">
-            <div className="hero-terminal">
-              <div className="terminal-header">
-                <div className="terminal-dots">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <span>~/shivamops</span>
+          <div className="control-panel">
+            <div className="panel-topline"><span>LIVE SYSTEM VIEW</span><span className="panel-live"><i /> ONLINE</span></div>
+            <div className="panel-screen">
+              <div className="screen-header"><span>~/shivamops</span><span>09:41:22 UTC</span></div>
+              <p><span className="terminal-muted">$</span> whoami</p><strong>site reliability engineer</strong>
+              <p><span className="terminal-muted">$</span> {command}</p><strong className="live-output">{output}</strong>
+              <div className="service-list">
+                <div><span>api-gateway</span><b>healthy</b></div>
+                <div><span>delivery-pipeline</span><b>deploying</b></div>
+                <div><span>observability</span><b>healthy</b></div>
               </div>
-
-              <div className="terminal-body">
-                <p>
-                  <span className="terminal-muted">$</span> whoami
-                </p>
-                <p className="terminal-output">shivam</p>
-
-                <p>
-                  <span className="terminal-muted">$</span> cat role.txt
-                </p>
-                <p className="terminal-output">
-                  SRE · 4 years in production
-                </p>
-
-                <p>
-                  <span className="terminal-muted">$</span>{" "}
-                  {currentTerminalState.command}
-                </p>
-                <p className="terminal-output terminal-live-output">
-                  {currentTerminalState.output}
-                </p>
-
-                <p>
-                  <span className="terminal-muted">$</span> kubectl get pods
-                </p>
-
-                <div className="pod-row">
-                  <span>api</span>
-                  <span className="green">Running</span>
-                </div>
-                <div className="pod-row">
-                  <span>worker</span>
-                  <span className="green">Running</span>
-                </div>
-                <div className="pod-row">
-                  <span>monitoring</span>
-                  <span className="green">Running</span>
-                </div>
-
-                <p className="cursor-line">
-                  <span className="terminal-muted">$</span> _
-                </p>
-              </div>
+              <div className="signal-line"><span /><span /><span /><span /><span /><span /><span /></div>
             </div>
-
-            <Image
-              className="hero-visual"
-              src="/operations-map.svg"
-              alt="Operational system map showing traffic, deployment, observability, recovery, and users"
-              width={720}
-              height={480}
-            />
+            <div className="panel-footer"><span>INCIDENT READY</span><span>4 YEARS SRE</span></div>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="stats-section">
-        <div className="container stats">
-          <div>
-            <strong>35%</strong>
-            <span>Lower MTTD</span>
-          </div>
-          <div>
-            <strong>40%</strong>
-            <span>Less alert noise</span>
-          </div>
-          <div>
-            <strong>85%</strong>
-            <span>Less Keycloak upgrade downtime</span>
-          </div>
-          <div>
-            <strong>20–30%</strong>
-            <span>Faster root-cause investigation</span>
-          </div>
+      <section className="impact-rail" aria-label="Selected impact metrics">
+        <div className="container impact-grid">
+          <div><strong>35%</strong><span>lower MTTD</span></div>
+          <div><strong>40%</strong><span>less alert noise</span></div>
+          <div><strong>85%</strong><span>less Keycloak upgrade downtime</span></div>
+          <div><strong>20–30%</strong><span>faster root-cause investigation</span></div>
         </div>
       </section>
 
-      {/* ABOUT */}
       <section className="section reveal" id="about">
-        <div className="container about-grid">
-          <div className="section-label">
-            <span>01</span>
-            ABOUT
-          </div>
-
-          <div className="about-content">
-            <h2>
-              Between <em>code</em> and production.
-            </h2>
-
-            <p>
-              I am a Site Reliability Engineer with four years of hands-on
-              experience designing, automating and maintaining highly
-              available, scalable and secure cloud-native systems.
-            </p>
-
-            <p>
-              My work spans Kubernetes, Terraform, AWS, CI/CD, observability
-              and incident management, with a focus on reducing downtime and
-              operational overhead.
-            </p>
-
-            <div className="focus-grid">
-              {focus.map((item) => (
-                <div className="focus-card" key={item.number}>
-                  <span>{item.number}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              ))}
+        <div className="container split-layout">
+          <SectionMarker number="01" label="ABOUT / PROFILE" />
+          <div className="profile-content">
+            <div className="profile-kicker">ENGINEER / BUILDER</div>
+            <h2>Between <em>code</em><br />and production.</h2>
+            <p className="lead">A Site Reliability Engineer with four years of hands-on experience designing, automating and maintaining highly available, scalable and secure cloud-native systems.</p>
+            <p>My work spans Kubernetes, Terraform, AWS, CI/CD, observability and incident management, with a focus on reducing downtime and operational overhead.</p>
+            <div className="focus-list">
+              {focus.map(([number, title, text]) => <div className="focus-row" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}
             </div>
           </div>
         </div>
       </section>
 
-      {/* EXPERIENCE */}
-      <section className="section section-dark reveal" id="experience">
+      <section className="section section-dark reveal" id="work">
         <div className="container">
-          <div className="section-label">
-            <span>02</span>
-            EXPERIENCE
-          </div>
-
-          <div className="experience-list">
-            {experience.map((item) => (
-              <article className="experience-item" key={item.period}>
-                <div className="experience-period">{item.period}</div>
-
-                <div>
-                  <h3>{item.role}</h3>
-                  <h4>{item.company}</h4>
-                  <p>{item.description}</p>
-                </div>
-              </article>
-            ))}
+          <SectionMarker number="02" label="WORK / SYSTEMS" />
+          <div className="section-intro"><h2>Production is<br /><em>the product.</em></h2><p>Predictable platforms, visible signals and delivery paths that give teams room to do their best work.</p></div>
+          <Pipeline />
+          <Image className="section-visual" src="/observability-panel.svg" alt="Observability dashboard showing uptime, reduced detection time and lower alert noise" width={960} height={420} />
+          <div className="case-grid">
+            <article className="case-card case-large"><div className="case-meta"><span>CASE 01</span><span>PLATFORM / KUBERNETES</span></div><h3>Continental</h3><p>Rancher-managed Kubernetes clusters, Helm deployments, Longhorn storage, MinIO, Prometheus, Grafana and Loki. Improved MinIO IOPS by 40% while supporting secure, GDPR-compliant storage.</p><div className="tag-row"><span>AWS</span><span>Rancher</span><span>Longhorn</span><span>MinIO</span></div></article>
+            <article className="case-card"><div className="case-meta"><span>CASE 02</span><span>RELIABILITY</span></div><h3>Incident command</h3><p>Leading cross-team response from detection and stakeholder communication through postmortems.</p><div className="case-signal">LIVE RESPONSE <i /></div></article>
+            <article className="case-card"><div className="case-meta"><span>CASE 03</span><span>DELIVERY / AI</span></div><h3>Operations, accelerated</h3><p>GitHub Copilot, log analysis and incident summaries reduced investigation time by 20–30%.</p><div className="tag-row"><span>Python</span><span>Copilot</span><span>IaC</span></div></article>
+            <article className="case-card"><div className="case-meta"><span>CASE 04</span><span>APPLICATION / AWS</span></div><h3>Shop For Home</h3><p>Responsive Angular frontend and Spring Boot backend deployed securely in an AWS VPC with PostgreSQL.</p><div className="tag-row"><span>Angular</span><span>Spring Boot</span><span>PostgreSQL</span></div></article>
           </div>
         </div>
       </section>
 
-      {/* WORK */}
-      <section className="section reveal" id="work">
+      <section className="section reveal" id="experience">
         <div className="container">
-          <div className="section-label">
-            <span>03</span>
-            WHAT I WORK ON
-          </div>
-
-          <div className="work-heading">
-            <h2>
-              Systems should be
-              <br />
-              <em>boring.</em>
-            </h2>
-
-            <p>
-              The best infrastructure is predictable, observable and
-              automated enough that teams can focus on the problems that
-              actually matter.
-            </p>
-          </div>
-
-          <Image
-            className="section-visual work-visual"
-            src="/observability-panel.svg"
-            alt="Observability dashboard showing uptime, reduced detection time, lower alert noise, and a live signal graph"
-            width={960}
-            height={420}
-          />
-
-          <div className="work-grid">
-            <div className="work-card">
-              <span>01</span>
-              <h3>Continental · Kubernetes Platform</h3>
-              <p>
-                Rancher-managed Kubernetes clusters, Helm deployments,
-                Longhorn storage, MinIO, Prometheus, Grafana and Loki. Improved
-                MinIO IOPS by 40% while supporting secure, GDPR-compliant storage.
-              </p>
-            </div>
-
-            <div className="work-card">
-              <span>02</span>
-              <h3>Incident Command</h3>
-              <p>
-                Leading cross-team response for production outages, from
-                detection and stakeholder communication through postmortems.
-              </p>
-            </div>
-
-            <div className="work-card">
-              <span>03</span>
-              <h3>Observability Strategy</h3>
-              <p>
-                Cut MTTD by 35% and alert noise by 40% across Grafana,
-                Site24x7 and Sumo Logic while reducing observability spend by
-                20–25%.
-              </p>
-            </div>
-
-            <div className="work-card">
-              <span>04</span>
-              <h3>AI-assisted Operations</h3>
-              <p>
-                Used GitHub Copilot, log analysis and incident summaries to
-                speed root-cause investigation and draft runbook and IaC changes,
-                reducing investigation time by 20–30%.
-              </p>
-            </div>
-
-            <div className="work-card">
-              <span>05</span>
-              <h3>Shop For Home · AWS</h3>
-              <p>
-                Responsive Angular frontend and Spring Boot backend deployed
-                securely in an AWS VPC with PostgreSQL.
-              </p>
-            </div>
-          </div>
+          <SectionMarker number="03" label="EXPERIENCE / HISTORY" />
+          <div className="section-intro compact"><h2>Operational<br /><em>history.</em></h2><p>Roles, systems and responsibilities across cloud infrastructure, identity, delivery and production support.</p></div>
+          <div className="timeline">{experience.map((item, index) => <article className="timeline-item" key={item.period}><div className="timeline-marker"><span>0{index + 1}</span><i /></div><div className="timeline-date">{item.period}</div><div className="timeline-body"><h3>{item.role}</h3><h4>{item.company}</h4><p>{item.description}</p><div className="tag-row">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>)}</div>
         </div>
       </section>
 
-      {/* STACK */}
       <section className="section section-dark reveal" id="stack">
         <div className="container">
-          <div className="section-label">
-            <span>04</span>
-            STACK
-          </div>
-
-          <div className="stack-heading">
-            <h2>
-              Tools I use to
-              <br />
-              <em>ship & operate.</em>
-            </h2>
-          </div>
-
-          <div className="stack-groups">
-            {stackGroups.map((group) => (
-              <div className="stack-group" key={group.title}>
-                <h3>{group.title}</h3>
-                <div className="stack-list">
-                  {group.items.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="credentials-grid">
-            <div>
-              <span className="credentials-label">CERTIFICATIONS</span>
-              <ul className="credentials-list">
-                {certifications.map((certification) => (
-                  <li key={certification}>{certification}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <span className="credentials-label">EDUCATION</span>
-              <p className="education-title">Bachelor of Technology</p>
-              <p className="education-detail">GLA University, Uttar Pradesh · 2018 — 2022</p>
-            </div>
-          </div>
+          <SectionMarker number="04" label="STACK / CAPABILITIES" />
+          <div className="section-intro compact"><h2>Tools grouped by<br /><em>how they work.</em></h2><p>No arbitrary skill bars. Just the systems and capabilities used to ship and operate.</p></div>
+          <div className="capability-grid">{stackGroups.map((group) => <article className="capability-card" key={group.code}><div><span>{group.code}</span><h3>{group.title}</h3></div><div className="tag-row">{group.items.map((item) => <span key={item}>{item}</span>)}</div></article>)}</div>
+          <div className="credentials"><div><span className="mono-label">CERTIFICATIONS</span><ul>{certifications.map((cert) => <li key={cert}>{cert}</li>)}</ul></div><div><span className="mono-label">EDUCATION</span><h3>Bachelor of Technology</h3><p>GLA University, Uttar Pradesh<br />2018 — 2022</p></div></div>
         </div>
       </section>
 
-      {/* HOBBY */}
       <section className="section reveal" id="hobby">
         <div className="container">
-          <div className="section-label">
-            <span>05</span>
-            HOBBY
-          </div>
-
-          <div className="hobby-heading">
-            <h2>
-              More than
-              <br />
-              <em>the terminal.</em>
-            </h2>
-
-            <p>
-              The things I return to when I am not designing systems help me
-              stay curious, observant and patient with difficult problems.
-            </p>
-          </div>
-
-          <Image
-            className="section-visual hobby-visual"
-            src="/maker-lab.svg"
-            alt="Maker lab illustration showing electronics tinkering and a 3D printer"
-            width={960}
-            height={420}
-          />
-
-          <div className="hobby-grid">
-            {hobbies.map((hobby, index) => (
-              <article
-                className={`hobby-card ${index === hobbies.length - 1 ? "hobby-card-featured" : ""}`}
-                key={hobby.title}
-              >
-                <span>0{index + 1}</span>
-                <h3>{hobby.title}</h3>
-                <p>{hobby.text}</p>
-              </article>
-            ))}
-          </div>
+          <SectionMarker number="05" label="OFFLINE / CURIOSITY" />
+          <div className="section-intro compact"><h2>Beyond<br /><em>the terminal.</em></h2><p>Curiosity is part of the operating system too.</p></div>
+          <div className="hobby-grid">{hobbies.map(([number, title, text]) => <article className={`hobby-card ${title === "Homelabbing" ? "is-highlighted" : ""}`} key={title}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
 
-      {/* BOOKS */}
       <section className="section section-dark reveal" id="books">
-        <div className="container books-grid">
-          <div className="section-label">
-            <span>06</span>
-            BOOKS
-          </div>
-
-          <div className="books-content">
-            <h2>
-              Stories beyond
-              <br />
-              <em>production.</em>
-            </h2>
-
-            <Image
-              className="section-visual books-visual"
-              src="/reading-desk.svg"
-              alt="Reading desk illustration with an open book and a quiet study space"
-              width={960}
-              height={420}
-            />
-
-            <div className="current-read">
-              <span className="current-read-label">CURRENT READ</span>
-              <h3>The Last Days of Socrates</h3>
-              <p>Plato</p>
-              <p className="current-read-note">
-                Reading Plato&apos;s dialogues to think about ethics, belief and
-                how people reason under pressure.
-              </p>
-            </div>
-          </div>
-        </div>
+        <div className="container book-layout"><SectionMarker number="06" label="BOOKS / CURRENT READ" /><div className="book-content"><div className="book-mark">READ / 01</div><h2>The Last Days<br />of <em>Socrates.</em></h2><p>Plato</p><div className="book-note">Reading Plato&apos;s dialogues to think about ethics, belief and how people reason under pressure.</div></div></div>
       </section>
 
-      {/* CONTACT */}
       <section className="contact-section reveal" id="contact">
-        <div className="container contact-content">
-          <div className="section-label">
-            <span>07</span>
-            CONTACT
-          </div>
-
-          <h2>
-            Have an interesting
-            <br />
-            <em>problem?</em>
-          </h2>
-
-          <p>
-            I&apos;m always interested in difficult infrastructure problems,
-            distributed systems, reliability and automation.
-          </p>
-
-          <div className="contact-links">
-            <a href="tel:+917318083485">
-              +91 73180 83485 ↗
-            </a>
-
-            <a
-              href="https://github.com/shivamyadav37"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub ↗
-            </a>
-
-            <a href="mailto:shivamy7318@gmail.com">
-              shivamy7318@gmail.com ↗
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/shivamyadav37"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn ↗
-            </a>
-          </div>
-        </div>
+        <div className="container contact-layout"><SectionMarker number="07" label="CONTACT / OPEN CHANNEL" /><div className="contact-content"><p className="profile-kicker">READY WHEN YOU ARE</p><h2>Let&apos;s build something<br /><em>reliable.</em></h2><p>I&apos;m interested in difficult infrastructure problems, distributed systems, reliability and automation.</p><div className="contact-links"><a href="mailto:shivamy7318@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/shivamyadav37" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/shivamyadav37" target="_blank" rel="noreferrer">GitHub ↗</a><a href="tel:+917318083485">Call ↗</a></div></div></div>
       </section>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="container footer-inner">
-          <span>© {new Date().getFullYear()} Shivam Yadav</span>
-          <span>Built with Next.js · Deployed on GitHub Pages</span>
-        </div>
-      </footer>
+      <footer><div className="container footer-inner"><span>© {new Date().getFullYear()} Shivam Yadav</span><span>SHIVAMOPS / STATICALLY DEPLOYED</span></div></footer>
     </main>
   );
 }
