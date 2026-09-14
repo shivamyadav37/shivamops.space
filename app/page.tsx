@@ -172,7 +172,7 @@ export default function Home() {
                 <small>0{index + 1}</small>{label}
               </a>
             ))}
-            <a href="/resume/Shivam-SRE-Resume.pdf" target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)}>
+            <a href="/resume/Shivam_SRE.pdf" target="_blank" rel="noreferrer" onClick={() => setMobileMenuOpen(false)}>
               <small>↓</small>Resume
             </a>
           </div>
@@ -190,7 +190,7 @@ export default function Home() {
             <p className="hero-description">I build, automate and operate highly available cloud-native systems across Kubernetes, AWS, delivery platforms and observability.</p>
             <div className="hero-actions">
               <a href="#contact" className="button button-primary">Start a conversation <span>↗</span></a>
-              <a href="/resume/Shivam-SRE-Resume.pdf" download className="button button-secondary">Download resume <span>↓</span></a>
+              <a href="/resume/Shivam_SRE.pdf" download="Shivam_SRE.pdf" className="button button-secondary">Download resume <span>↓</span></a>
             </div>
           </div>
 
