@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const experience = [
   {
@@ -250,58 +251,68 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-terminal">
-            <div className="terminal-header">
-              <div className="terminal-dots">
-                <span />
-                <span />
-                <span />
+          <div className="hero-side">
+            <div className="hero-terminal">
+              <div className="terminal-header">
+                <div className="terminal-dots">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <span>~/shivamops</span>
               </div>
-              <span>~/shivamops</span>
+
+              <div className="terminal-body">
+                <p>
+                  <span className="terminal-muted">$</span> whoami
+                </p>
+                <p className="terminal-output">shivam</p>
+
+                <p>
+                  <span className="terminal-muted">$</span> cat role.txt
+                </p>
+                <p className="terminal-output">
+                  SRE · 4 years in production
+                </p>
+
+                <p>
+                  <span className="terminal-muted">$</span>{" "}
+                  {currentTerminalState.command}
+                </p>
+                <p className="terminal-output terminal-live-output">
+                  {currentTerminalState.output}
+                </p>
+
+                <p>
+                  <span className="terminal-muted">$</span> kubectl get pods
+                </p>
+
+                <div className="pod-row">
+                  <span>api</span>
+                  <span className="green">Running</span>
+                </div>
+                <div className="pod-row">
+                  <span>worker</span>
+                  <span className="green">Running</span>
+                </div>
+                <div className="pod-row">
+                  <span>monitoring</span>
+                  <span className="green">Running</span>
+                </div>
+
+                <p className="cursor-line">
+                  <span className="terminal-muted">$</span> _
+                </p>
+              </div>
             </div>
 
-            <div className="terminal-body">
-              <p>
-                <span className="terminal-muted">$</span> whoami
-              </p>
-              <p className="terminal-output">shivam</p>
-
-              <p>
-                <span className="terminal-muted">$</span> cat role.txt
-              </p>
-              <p className="terminal-output">
-                SRE · 4 years in production
-              </p>
-
-              <p>
-                <span className="terminal-muted">$</span>{" "}
-                {currentTerminalState.command}
-              </p>
-              <p className="terminal-output terminal-live-output">
-                {currentTerminalState.output}
-              </p>
-
-              <p>
-                <span className="terminal-muted">$</span> kubectl get pods
-              </p>
-
-              <div className="pod-row">
-                <span>api</span>
-                <span className="green">Running</span>
-              </div>
-              <div className="pod-row">
-                <span>worker</span>
-                <span className="green">Running</span>
-              </div>
-              <div className="pod-row">
-                <span>monitoring</span>
-                <span className="green">Running</span>
-              </div>
-
-              <p className="cursor-line">
-                <span className="terminal-muted">$</span> _
-              </p>
-            </div>
+            <Image
+              className="hero-visual"
+              src="/operations-map.svg"
+              alt="Operational system map showing traffic, deployment, observability, recovery, and users"
+              width={720}
+              height={480}
+            />
           </div>
         </div>
       </section>
