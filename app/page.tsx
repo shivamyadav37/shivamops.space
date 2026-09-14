@@ -9,7 +9,7 @@ const experience = [
     role: "Site Reliability Engineer",
     company: "Pitney Bowes · Pune, India",
     description:
-      "Incident Commander for business-critical shipping platforms. Rebuilt observability, owned GitLab delivery for 30–50 production deploys per week, and automated AWS operations across 10+ accounts.",
+      "Incident Commander for business-critical shipping platforms. Rebuilt observability to cut MTTD 35% and alert noise 40%, owned GitLab delivery for 30–50 production deploys per week, and automated AWS operations across 10+ accounts.",
   },
   {
     period: "OCT 2025 — JAN 2026",
@@ -60,6 +60,7 @@ const stack = [
   "Entra ID",
   "PostgreSQL",
   "MongoDB",
+  "GitHub Copilot",
 ];
 
 const focus = [
@@ -82,7 +83,7 @@ const focus = [
 
 const hobbies = [
   {
-    title: "SRE",
+    title: "Systems thinking",
     text: "Thinking deeply about reliable systems, operational clarity and what keeps production steady.",
   },
   {
@@ -104,11 +105,11 @@ const hobbies = [
 ];
 
 const certifications = [
-  "Certified Kubernetes Administrator",
-  "AWS Certified Security — Specialty",
-  "AWS Certified Developer — Associate",
-  "AWS Certified Solutions Architect — Associate",
-  "AWS Certified Cloud Practitioner",
+  "CKA — Certified Kubernetes Administrator",
+  "AWS Certified Security — Specialty (SCS-C02)",
+  "AWS Certified Developer — Associate (DVA-C02)",
+  "AWS Certified Solutions Architect — Associate (SAA-C03)",
+  "AWS Certified Cloud Practitioner (CLF-C01)",
   "GCP Associate Cloud Engineer",
   "GitHub Foundations Certified",
 ];
@@ -126,7 +127,7 @@ const navItems = [
 const terminalStates = [
   { command: "uptime", output: "production: stable" },
   { command: "status --services", output: "all systems operational" },
-  { command: "git status", output: "working tree clean" },
+  { command: "incident_mode --status", output: "ready for production" },
 ];
 
 export default function Home() {
@@ -348,7 +349,7 @@ export default function Home() {
           </div>
           <div>
             <strong>99.9%</strong>
-            <span>Uptime achieved</span>
+            <span>Infrastructure uptime supported</span>
           </div>
         </div>
       </section>
@@ -443,7 +444,8 @@ export default function Home() {
               <h3>Continental · Kubernetes Platform</h3>
               <p>
                 Rancher-managed Kubernetes clusters, Helm deployments,
-                Longhorn storage, MinIO, Prometheus, Grafana and Loki.
+                Longhorn storage, MinIO, Prometheus, Grafana and Loki. Improved
+                MinIO IOPS by 40% while supporting secure, GDPR-compliant storage.
               </p>
             </div>
 
@@ -461,12 +463,23 @@ export default function Home() {
               <h3>Observability Strategy</h3>
               <p>
                 Cut MTTD by 35% and alert noise by 40% across Grafana,
-                Site24x7 and Sumo Logic while reducing observability spend.
+                Site24x7 and Sumo Logic while reducing observability spend by
+                20–25%.
               </p>
             </div>
 
             <div className="work-card">
               <span>04</span>
+              <h3>AI-assisted Operations</h3>
+              <p>
+                Used GitHub Copilot, log analysis and incident summaries to
+                speed root-cause investigation and draft runbook and IaC changes,
+                reducing investigation time by 20–30%.
+              </p>
+            </div>
+
+            <div className="work-card">
+              <span>05</span>
               <h3>Shop For Home · AWS</h3>
               <p>
                 Responsive Angular frontend and Spring Boot backend deployed
@@ -572,6 +585,10 @@ export default function Home() {
               <span className="current-read-label">CURRENT READ</span>
               <h3>The Last Days of Socrates</h3>
               <p>Plato</p>
+              <p className="current-read-note">
+                Reading Plato&apos;s dialogues to think about ethics, belief and
+                how people reason under pressure.
+              </p>
             </div>
           </div>
         </div>
@@ -610,7 +627,7 @@ export default function Home() {
             </a>
 
             <a href="mailto:shivamy7318@gmail.com">
-              Email ↗
+              shivamy7318@gmail.com ↗
             </a>
 
             <a
