@@ -256,6 +256,14 @@ export default function Home() {
               </a>
 
               <a
+                href="/resume/Shivam-SRE-Resume.pdf"
+                download
+                className="button button-secondary"
+              >
+                Resume <span>↓</span>
+              </a>
+
+              <a
                 href="https://github.com/shivamyadav37"
                 target="_blank"
                 rel="noreferrer"
