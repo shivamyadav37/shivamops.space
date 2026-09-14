@@ -590,6 +590,53 @@ a {
   color: var(--accent);
 }
 
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  margin-top: 90px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.credentials-label {
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.credentials-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px 30px;
+  margin: 28px 0 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  list-style: none;
+}
+
+.credentials-list li::before {
+  content: "+";
+  margin-right: 9px;
+  color: var(--accent);
+}
+
+.education-title {
+  margin: 28px 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.education-detail {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
 /* HOBBY */
 
 .hobby-heading {
@@ -809,6 +856,11 @@ footer {
     grid-template-columns: 1fr;
     gap: 0;
   }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -851,6 +903,10 @@ footer {
   .focus-grid,
   .work-grid,
   .hobby-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credentials-list {
     grid-template-columns: 1fr;
   }
 

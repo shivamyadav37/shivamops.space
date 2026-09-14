@@ -4,51 +4,78 @@ import { useEffect, useState } from "react";
 
 const experience = [
   {
-    period: "CURRENT",
-    role: "SRE / DevOps Engineer",
-    company: "Your Company",
+    period: "JAN 2026 — PRESENT",
+    role: "Site Reliability Engineer",
+    company: "Pitney Bowes · Pune, India",
     description:
-      "Designing, automating and operating reliable cloud infrastructure and delivery platforms.",
+      "Incident Commander for business-critical shipping platforms. Rebuilt observability, owned GitLab delivery for 30–50 production deploys per week, and automated AWS operations across 10+ accounts.",
   },
   {
-    period: "PREVIOUS",
-    role: "DevOps / TechOps Engineer",
-    company: "Previous Company",
+    period: "OCT 2025 — JAN 2026",
+    role: "Site Reliability Engineer",
+    company: "Syensqo · Pune, India",
     description:
-      "Focused on infrastructure automation, CI/CD, observability and production reliability.",
+      "Managed Azure AD identity lifecycle, SSO integrations, Conditional Access, MFA and RBAC across the organization.",
+  },
+  {
+    period: "SEP 2022 — OCT 2025",
+    role: "Site Reliability Engineer",
+    company: "Wipro · Pune, India",
+    description:
+      "Automated infrastructure across 100+ environments, defined SLOs, improved fault tolerance and reduced Keycloak upgrade downtime by 85% while maintaining 99.9% uptime.",
+  },
+  {
+    period: "APR 2022 — JUN 2022",
+    role: "Trainee",
+    company: "Wipro · Gurgaon, India",
+    description:
+      "Deployed a Spring Boot and Angular application on AWS using VPC, CloudWatch, Lambda, S3, SQS, DynamoDB and IAM services.",
   },
 ];
 
 const stack = [
   "AWS",
+  "Azure",
   "Kubernetes",
+  "Docker",
+  "Rancher",
+  "Helm",
+  "Longhorn",
   "Terraform",
+  "Ansible",
+  "GitLab CI/CD",
   "ArgoCD",
+  "Jenkins",
   "Prometheus",
   "Grafana",
-  "Docker",
-  "Linux",
+  "Loki",
+  "Sumo Logic",
+  "Site24x7",
   "GitHub Actions",
   "Python",
+  "Bash",
   "Git",
-  "CI/CD",
+  "Keycloak",
+  "Entra ID",
+  "PostgreSQL",
+  "MongoDB",
 ];
 
 const focus = [
   {
     number: "01",
     title: "Reliability",
-    text: "Designing systems around availability, resilience, observability and operational excellence.",
+    text: "Improving SLO compliance, fault tolerance and operational readiness for production systems.",
   },
   {
     number: "02",
     title: "Automation",
-    text: "Replacing repetitive operational work with infrastructure-as-code and automated delivery.",
+    text: "Replacing manual work with Terraform, Python, CI/CD automation and repeatable runbooks.",
   },
   {
     number: "03",
     title: "Observability",
-    text: "Making systems measurable through metrics, dashboards, alerting and actionable signals.",
+    text: "Turning metrics, logs and alerts into actionable signals that reduce detection and recovery time.",
   },
 ];
 
@@ -73,6 +100,16 @@ const hobbies = [
     title: "3D printing",
     text: "Turning digital designs into physical objects and iterating until the idea fits in your hands.",
   },
+];
+
+const certifications = [
+  "Certified Kubernetes Administrator",
+  "AWS Certified Security — Specialty",
+  "AWS Certified Developer — Associate",
+  "AWS Certified Solutions Architect — Associate",
+  "AWS Certified Cloud Practitioner",
+  "GCP Associate Cloud Engineer",
+  "GitHub Foundations Certified",
 ];
 
 const navItems = [
@@ -177,7 +214,7 @@ export default function Home() {
           <div className="hero-content">
             <div className="eyebrow">
               <span className="status-dot" />
-              AVAILABLE FOR GREAT ENGINEERING PROBLEMS
+              SITE RELIABILITY ENGINEER · PUNE, INDIA
             </div>
 
             <h1>
@@ -191,9 +228,9 @@ export default function Home() {
             </p>
 
             <p className="hero-description">
-              I build, automate and operate reliable systems.
+              I build, automate and operate highly available cloud-native systems.
               <br />
-              Infrastructure, delivery and everything between code and production.
+              Kubernetes, AWS, observability and everything between code and production.
             </p>
 
             <div className="hero-actions">
@@ -232,7 +269,7 @@ export default function Home() {
                 <span className="terminal-muted">$</span> cat role.txt
               </p>
               <p className="terminal-output">
-                Site Reliability Engineer
+                SRE · 4 years in production
               </p>
 
               <p>
@@ -273,19 +310,19 @@ export default function Home() {
         <div className="container stats">
           <div>
             <strong>04+</strong>
-            <span>Years in infrastructure</span>
+            <span>Years in SRE</span>
           </div>
           <div>
-            <strong>AWS</strong>
-            <span>Cloud infrastructure</span>
+            <strong>10+</strong>
+            <span>AWS accounts managed</span>
           </div>
           <div>
-            <strong>K8s</strong>
-            <span>Container orchestration</span>
+            <strong>30–50</strong>
+            <span>Production deploys / week</span>
           </div>
           <div>
-            <strong>24/7</strong>
-            <span>Production mindset</span>
+            <strong>99.9%</strong>
+            <span>Uptime achieved</span>
           </div>
         </div>
       </section>
@@ -304,14 +341,15 @@ export default function Home() {
             </h2>
 
             <p>
-              I work at the intersection of software engineering,
-              infrastructure and operations — building systems that are
-              easier to deploy, observe, scale and recover.
+              I am a Site Reliability Engineer with four years of hands-on
+              experience designing, automating and maintaining highly
+              available, scalable and secure cloud-native systems.
             </p>
 
             <p>
-              My work revolves around cloud infrastructure, Kubernetes,
-              infrastructure-as-code, continuous delivery and observability.
+              My work spans Kubernetes, Terraform, AWS, CI/CD, observability
+              and incident management, with a focus on reducing downtime and
+              operational overhead.
             </p>
 
             <div className="focus-grid">
@@ -368,7 +406,7 @@ export default function Home() {
 
             <p>
               The best infrastructure is predictable, observable and
-              automated enough that humans can focus on the problems that
+              automated enough that teams can focus on the problems that
               actually matter.
             </p>
           </div>
@@ -376,37 +414,37 @@ export default function Home() {
           <div className="work-grid">
             <div className="work-card">
               <span>01</span>
-              <h3>Cloud Infrastructure</h3>
+              <h3>Continental · Kubernetes Platform</h3>
               <p>
-                Highly available AWS infrastructure designed for resilience,
-                scalability and operational simplicity.
+                Rancher-managed Kubernetes clusters, Helm deployments,
+                Longhorn storage, MinIO, Prometheus, Grafana and Loki.
               </p>
             </div>
 
             <div className="work-card">
               <span>02</span>
-              <h3>Platform Engineering</h3>
+              <h3>Incident Command</h3>
               <p>
-                Kubernetes platforms, deployment workflows and tooling that
-                make shipping software easier for engineering teams.
+                Leading cross-team response for production outages, from
+                detection and stakeholder communication through postmortems.
               </p>
             </div>
 
             <div className="work-card">
               <span>03</span>
-              <h3>Observability</h3>
+              <h3>Observability Strategy</h3>
               <p>
-                Metrics, dashboards, alerting and operational signals that
-                turn production behaviour into actionable information.
+                Cut MTTD by 35% and alert noise by 40% across Grafana,
+                Site24x7 and Sumo Logic while reducing observability spend.
               </p>
             </div>
 
             <div className="work-card">
               <span>04</span>
-              <h3>Infrastructure Automation</h3>
+              <h3>Shop For Home · AWS</h3>
               <p>
-                Terraform, GitOps and CI/CD pipelines that turn infrastructure
-                changes into repeatable, reviewable workflows.
+                Responsive Angular frontend and Spring Boot backend deployed
+                securely in an AWS VPC with PostgreSQL.
               </p>
             </div>
           </div>
@@ -433,6 +471,22 @@ export default function Home() {
             {stack.map((item) => (
               <span key={item}>{item}</span>
             ))}
+          </div>
+
+          <div className="credentials-grid">
+            <div>
+              <span className="credentials-label">CERTIFICATIONS</span>
+              <ul className="credentials-list">
+                {certifications.map((certification) => (
+                  <li key={certification}>{certification}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <span className="credentials-label">EDUCATION</span>
+              <p className="education-title">Bachelor of Technology</p>
+              <p className="education-detail">GLA University, Uttar Pradesh · 2018 — 2022</p>
+            </div>
           </div>
         </div>
       </section>
@@ -517,6 +571,10 @@ export default function Home() {
           </p>
 
           <div className="contact-links">
+            <a href="tel:+917318083485">
+              +91 73180 83485 ↗
+            </a>
+
             <a
               href="https://github.com/shivamyadav37"
               target="_blank"
@@ -525,8 +583,16 @@ export default function Home() {
               GitHub ↗
             </a>
 
-            <a href="mailto:hello@shivamops.space">
+            <a href="mailto:shivamy7318@gmail.com">
               Email ↗
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/shivamyadav37"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn ↗
             </a>
           </div>
         </div>

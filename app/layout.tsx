@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Shivam Yadav — SRE · DevOps · TechOps",
   description:
-    "Shivam Yadav — Site Reliability Engineer, DevOps and TechOps engineer focused on reliable systems, cloud infrastructure and automation.",
+    "Shivam Yadav — Site Reliability Engineer with 4 years of experience in Kubernetes, AWS, Terraform, CI/CD, observability and incident management.",
   keywords: [
     "Shivam Yadav",
     "SRE",
@@ -14,13 +14,16 @@ export const metadata: Metadata = {
     "AWS",
     "Kubernetes",
     "Terraform",
+    "Prometheus",
+    "Grafana",
+    "Incident Management",
   ],
   authors: [{ name: "Shivam Yadav" }],
   metadataBase: new URL("https://shivamops.space"),
   openGraph: {
     title: "Shivam Yadav — SRE · DevOps · TechOps",
     description:
-      "Building, automating and operating reliable systems.",
+      "Building, automating and operating highly available cloud-native systems.",
     url: "https://shivamops.space",
     siteName: "Shivam Yadav",
     type: "website",
