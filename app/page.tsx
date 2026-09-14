@@ -48,6 +48,29 @@ const focus = [
   },
 ];
 
+const hobbies = [
+  {
+    title: "SRE",
+    text: "Thinking deeply about reliable systems, operational clarity and what keeps production steady.",
+  },
+  {
+    title: "Electronics tinkering",
+    text: "Taking circuits apart, following signals and learning by making small things work.",
+  },
+  {
+    title: "IoT",
+    text: "Connecting devices, sensors and everyday spaces to the systems behind them.",
+  },
+  {
+    title: "Reading & writing",
+    text: "Making room for books, notes and ideas that are worth slowing down to understand.",
+  },
+  {
+    title: "3D printing",
+    text: "Turning digital designs into physical objects and iterating until the idea fits in your hands.",
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -63,6 +86,8 @@ export default function Home() {
             <a href="#experience">Experience</a>
             <a href="#work">Work</a>
             <a href="#stack">Stack</a>
+            <a href="#hobby">Hobby</a>
+            <a href="#books">Books</a>
             <a href="#contact">Contact</a>
           </div>
 
@@ -104,7 +129,7 @@ export default function Home() {
 
             <div className="hero-actions">
               <a href="#contact" className="button button-primary">
-                Let's connect <span>↗</span>
+                Let&apos;s connect <span>↗</span>
               </a>
 
               <a
@@ -342,11 +367,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* HOBBY */}
+      <section className="section" id="hobby">
+        <div className="container">
+          <div className="section-label">
+            <span>05</span>
+            HOBBY
+          </div>
+
+          <div className="hobby-heading">
+            <h2>
+              More than
+              <br />
+              <em>the terminal.</em>
+            </h2>
+
+            <p>
+              The things I return to when I am not designing systems help me
+              stay curious, observant and patient with difficult problems.
+            </p>
+          </div>
+
+          <div className="hobby-grid">
+            {hobbies.map((hobby, index) => (
+              <article
+                className={`hobby-card ${index === hobbies.length - 1 ? "hobby-card-featured" : ""}`}
+                key={hobby.title}
+              >
+                <span>0{index + 1}</span>
+                <h3>{hobby.title}</h3>
+                <p>{hobby.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BOOKS */}
+      <section className="section section-dark" id="books">
+        <div className="container books-grid">
+          <div className="section-label">
+            <span>06</span>
+            BOOKS
+          </div>
+
+          <div className="books-content">
+            <h2>
+              Stories beyond
+              <br />
+              <em>production.</em>
+            </h2>
+
+            <div className="current-read">
+              <span className="current-read-label">CURRENT READ</span>
+              <h3>The Last Days of Socrates</h3>
+              <p>Plato</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section className="contact-section" id="contact">
         <div className="container contact-content">
           <div className="section-label">
-            <span>05</span>
+            <span>07</span>
             CONTACT
           </div>
 
@@ -357,7 +442,7 @@ export default function Home() {
           </h2>
 
           <p>
-            I'm always interested in difficult infrastructure problems,
+            I&apos;m always interested in difficult infrastructure problems,
             distributed systems, reliability and automation.
           </p>
 
