@@ -132,6 +132,7 @@ const terminalStates = [
 export default function Home() {
   const [activeSection, setActiveSection] = useState("experience");
   const [terminalState, setTerminalState] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.add("motion-ready");
@@ -187,12 +188,25 @@ export default function Home() {
             <span>shivamops</span>
           </a>
 
-          <div className="nav-links">
+          <button
+            className="mobile-menu-toggle"
+            type="button"
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <div className={`nav-links ${mobileMenuOpen ? "is-open" : ""}`}>
             {navItems.map(([id, label]) => (
               <a
                 className={activeSection === id ? "active" : ""}
                 href={`#${id}`}
                 key={id}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {label}
               </a>
