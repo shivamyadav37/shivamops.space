@@ -25,6 +25,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-family:
@@ -990,7 +991,24 @@ footer {
     width: min(100% - 30px, var(--max-width));
   }
 
+  .nav-inner {
+    min-height: 76px;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 14px 0 0;
+  }
+
   .nav-links {
+    order: 3;
+    width: 100%;
+    gap: 22px;
+    padding: 0 0 13px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .nav-links::-webkit-scrollbar {
     display: none;
   }
 
@@ -999,7 +1017,29 @@ footer {
   }
 
   .hero h1 {
-    font-size: 70px;
+    font-size: clamp(58px, 18vw, 70px);
+  }
+
+  .hero {
+    padding: 72px 0;
+  }
+
+  .hero-grid {
+    gap: 44px;
+  }
+
+  .hero-terminal {
+    width: 100%;
+  }
+
+  .terminal-body {
+    min-height: 0;
+    padding: 22px 18px;
+    font-size: 11px;
+  }
+
+  .hero-visual {
+    border-radius: 7px;
   }
 
   .hero-description br {
@@ -1019,7 +1059,11 @@ footer {
   }
 
   .section {
-    padding: 90px 0;
+    padding: 76px 0;
+  }
+
+  .section-label {
+    margin-bottom: 38px;
   }
 
   .focus-grid,
@@ -1039,7 +1083,14 @@ footer {
   }
 
   .contact-section {
-    padding: 110px 0;
+    padding: 90px 0;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-top: 35px;
   }
 
   .footer-inner {
