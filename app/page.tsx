@@ -34,33 +34,31 @@ const experience = [
   },
 ];
 
-const stack = [
-  "AWS",
-  "Azure",
-  "Kubernetes",
-  "Docker",
-  "Rancher",
-  "Helm",
-  "Longhorn",
-  "Terraform",
-  "Ansible",
-  "GitLab CI/CD",
-  "ArgoCD",
-  "Jenkins",
-  "Prometheus",
-  "Grafana",
-  "Loki",
-  "Sumo Logic",
-  "Site24x7",
-  "GitHub Actions",
-  "Python",
-  "Bash",
-  "Git",
-  "Keycloak",
-  "Entra ID",
-  "PostgreSQL",
-  "MongoDB",
-  "GitHub Copilot",
+const stackGroups = [
+  {
+    title: "Cloud",
+    items: ["AWS", "Azure", "EC2", "VPC", "Lambda", "CloudWatch"],
+  },
+  {
+    title: "Kubernetes",
+    items: ["Kubernetes", "Docker", "Rancher", "Helm", "Longhorn"],
+  },
+  {
+    title: "Infrastructure & delivery",
+    items: ["Terraform", "Ansible", "GitLab CI/CD", "ArgoCD", "Jenkins", "GitHub Actions"],
+  },
+  {
+    title: "Observability",
+    items: ["Prometheus", "Grafana", "Loki", "Sumo Logic", "Site24x7"],
+  },
+  {
+    title: "Languages & systems",
+    items: ["Python", "Bash", "Git", "PostgreSQL", "MongoDB"],
+  },
+  {
+    title: "Security & AI",
+    items: ["Keycloak", "Entra ID", "RBAC", "MFA", "GitHub Copilot"],
+  },
 ];
 
 const focus = [
@@ -212,6 +210,14 @@ export default function Home() {
                 {label}
               </a>
             ))}
+            <a
+              href="/resume/Shivam-SRE-Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Resume ↗
+            </a>
           </div>
 
           <a
@@ -344,20 +350,20 @@ export default function Home() {
       <section className="stats-section">
         <div className="container stats">
           <div>
-            <strong>04+</strong>
-            <span>Years in SRE</span>
+            <strong>35%</strong>
+            <span>Lower MTTD</span>
           </div>
           <div>
-            <strong>10+</strong>
-            <span>AWS accounts managed</span>
+            <strong>40%</strong>
+            <span>Less alert noise</span>
           </div>
           <div>
-            <strong>30–50</strong>
-            <span>Production deploys / week</span>
+            <strong>85%</strong>
+            <span>Less Keycloak upgrade downtime</span>
           </div>
           <div>
-            <strong>99.9%</strong>
-            <span>Infrastructure uptime supported</span>
+            <strong>20–30%</strong>
+            <span>Faster root-cause investigation</span>
           </div>
         </div>
       </section>
@@ -514,9 +520,16 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="stack-list">
-            {stack.map((item) => (
-              <span key={item}>{item}</span>
+          <div className="stack-groups">
+            {stackGroups.map((group) => (
+              <div className="stack-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <div className="stack-list">
+                  {group.items.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
 
