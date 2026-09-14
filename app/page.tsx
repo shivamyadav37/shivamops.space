@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const experience = [
   {
     period: "CURRENT",
@@ -71,7 +75,69 @@ const hobbies = [
   },
 ];
 
+const navItems = [
+  ["experience", "Experience"],
+  ["work", "Work"],
+  ["stack", "Stack"],
+  ["hobby", "Hobby"],
+  ["books", "Books"],
+  ["contact", "Contact"],
+];
+
+const terminalStates = [
+  { command: "uptime", output: "production: stable" },
+  { command: "status --services", output: "all systems operational" },
+  { command: "git status", output: "working tree clean" },
+];
+
 export default function Home() {
+  const [activeSection, setActiveSection] = useState("experience");
+  const [terminalState, setTerminalState] = useState(0);
+
+  useEffect(() => {
+    document.documentElement.classList.add("motion-ready");
+
+    const sections = navItems
+      .map(([id]) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection) {
+          setActiveSection(visibleSection.target.id);
+        }
+      },
+      { rootMargin: "-30% 0px -55%", threshold: [0.1, 0.35, 0.7] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setTerminalState((current) => (current + 1) % terminalStates.length);
+    }, 4200);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const currentTerminalState = terminalStates[terminalState];
+
   return (
     <main>
       {/* NAVIGATION */}
@@ -83,12 +149,15 @@ export default function Home() {
           </a>
 
           <div className="nav-links">
-            <a href="#experience">Experience</a>
-            <a href="#work">Work</a>
-            <a href="#stack">Stack</a>
-            <a href="#hobby">Hobby</a>
-            <a href="#books">Books</a>
-            <a href="#contact">Contact</a>
+            {navItems.map(([id, label]) => (
+              <a
+                className={activeSection === id ? "active" : ""}
+                href={`#${id}`}
+                key={id}
+              >
+                {label}
+              </a>
+            ))}
           </div>
 
           <a
@@ -167,10 +236,11 @@ export default function Home() {
               </p>
 
               <p>
-                <span className="terminal-muted">$</span> uptime
+                <span className="terminal-muted">$</span>{" "}
+                {currentTerminalState.command}
               </p>
-              <p className="terminal-output">
-                production: <strong>stable</strong>
+              <p className="terminal-output terminal-live-output">
+                {currentTerminalState.output}
               </p>
 
               <p>
@@ -221,7 +291,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="section">
+      <section className="section reveal">
         <div className="container about-grid">
           <div className="section-label">
             <span>01</span>
@@ -258,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* EXPERIENCE */}
-      <section className="section section-dark" id="experience">
+      <section className="section section-dark reveal" id="experience">
         <div className="container">
           <div className="section-label">
             <span>02</span>
@@ -282,7 +352,7 @@ export default function Home() {
       </section>
 
       {/* WORK */}
-      <section className="section" id="work">
+      <section className="section reveal" id="work">
         <div className="container">
           <div className="section-label">
             <span>03</span>
@@ -344,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* STACK */}
-      <section className="section section-dark" id="stack">
+      <section className="section section-dark reveal" id="stack">
         <div className="container">
           <div className="section-label">
             <span>04</span>
@@ -368,7 +438,7 @@ export default function Home() {
       </section>
 
       {/* HOBBY */}
-      <section className="section" id="hobby">
+      <section className="section reveal" id="hobby">
         <div className="container">
           <div className="section-label">
             <span>05</span>
@@ -404,7 +474,7 @@ export default function Home() {
       </section>
 
       {/* BOOKS */}
-      <section className="section section-dark" id="books">
+      <section className="section section-dark reveal" id="books">
         <div className="container books-grid">
           <div className="section-label">
             <span>06</span>
@@ -428,7 +498,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section className="contact-section" id="contact">
+      <section className="contact-section reveal" id="contact">
         <div className="container contact-content">
           <div className="section-label">
             <span>07</span>

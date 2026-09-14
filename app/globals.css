@@ -94,8 +94,13 @@ a {
 }
 
 .nav-links a:hover,
+.nav-links a.active,
 .nav-github:hover {
   color: var(--text);
+}
+
+.nav-links a.active {
+  color: var(--accent);
 }
 
 .nav-github {
@@ -269,6 +274,21 @@ a {
   color: var(--accent);
 }
 
+.terminal-live-output {
+  animation: terminal-pulse 0.45s ease both;
+}
+
+@keyframes terminal-pulse {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .pod-row {
   display: flex;
   justify-content: space-between;
@@ -327,6 +347,39 @@ a {
 .section {
   padding: 130px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-ready .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.motion-ready .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-ready .reveal,
+  .motion-ready .reveal.is-visible,
+  .terminal-live-output {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .section-dark {
