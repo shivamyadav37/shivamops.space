@@ -113,6 +113,7 @@ const certifications = [
 ];
 
 const navItems = [
+  ["about", "About"],
   ["experience", "Experience"],
   ["work", "Work"],
   ["stack", "Stack"],
@@ -328,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="section reveal">
+      <section className="section reveal" id="about">
         <div className="container about-grid">
           <div className="section-label">
             <span>01</span>
