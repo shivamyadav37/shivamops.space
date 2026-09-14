@@ -1,22 +1,23 @@
 <svg width="720" height="480" viewBox="0 0 720 480" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="720" height="480" rx="18" fill="#0B1012"/>
-  <path d="M78 104H642M78 240H642M78 376H642" stroke="#26383B"/>
-  <path d="M180 52V428M360 52V428M540 52V428" stroke="#1A292C"/>
-  <path d="M126 240H238L292 136H428L482 240H594" stroke="#57D8FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M292 136L360 240L428 136M360 240V344" stroke="#B7FF4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="126" cy="240" r="12" fill="#0B1012" stroke="#FFBD5C" stroke-width="3"/>
-  <circle cx="292" cy="136" r="12" fill="#0B1012" stroke="#57D8FF" stroke-width="3"/>
-  <circle cx="428" cy="136" r="12" fill="#0B1012" stroke="#57D8FF" stroke-width="3"/>
-  <circle cx="360" cy="240" r="15" fill="#B7FF4A"/>
-  <circle cx="360" cy="240" r="6" fill="#0B1012"/>
-  <circle cx="360" cy="344" r="12" fill="#0B1012" stroke="#B7FF4A" stroke-width="3"/>
-  <circle cx="594" cy="240" r="12" fill="#0B1012" stroke="#FFBD5C" stroke-width="3"/>
-  <text x="95" y="218" fill="#8D9A98" font-family="monospace" font-size="12">traffic</text>
-  <text x="256" y="108" fill="#8D9A98" font-family="monospace" font-size="12">deploy</text>
-  <text x="397" y="108" fill="#8D9A98" font-family="monospace" font-size="12">observe</text>
-  <text x="335" y="216" fill="#0B1012" font-family="monospace" font-size="11" font-weight="700">core</text>
-  <text x="322" y="377" fill="#8D9A98" font-family="monospace" font-size="12">recover</text>
-  <text x="558" y="218" fill="#8D9A98" font-family="monospace" font-size="12">users</text>
-  <text x="34" y="40" fill="#57D8FF" font-family="monospace" font-size="11">/ops/topology</text>
-  <text x="558" y="40" fill="#8D9A98" font-family="monospace" font-size="11">stable · 99.9%</text>
+  <circle cx="360" cy="240" r="82" fill="#B7FF4A" opacity="0.12"/>
+  <path d="M128 240H268M452 240H592M360 112V174M360 306V368" stroke="#57D8FF" stroke-width="4" stroke-linecap="round"/>
+  <rect x="268" y="174" width="184" height="132" rx="18" fill="#162123" stroke="#B7FF4A" stroke-width="3"/>
+  <circle cx="360" cy="232" r="24" fill="#B7FF4A"/>
+  <path d="M350 232L357 239L372 222" stroke="#0B1012" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="66" y="204" width="62" height="72" rx="12" fill="#151E20" stroke="#FFBD5C" stroke-width="3"/>
+  <path d="M83 227H111M83 244H111M83 261H101" stroke="#FFBD5C" stroke-width="3" stroke-linecap="round"/>
+  <rect x="592" y="204" width="62" height="72" rx="12" fill="#151E20" stroke="#FFBD5C" stroke-width="3"/>
+  <circle cx="623" cy="232" r="10" stroke="#FFBD5C" stroke-width="3"/>
+  <path d="M607 258H639" stroke="#FFBD5C" stroke-width="3" stroke-linecap="round"/>
+  <rect x="328" y="58" width="64" height="54" rx="12" fill="#151E20" stroke="#57D8FF" stroke-width="3"/>
+  <path d="M342 78H378M342 94H366" stroke="#57D8FF" stroke-width="3" stroke-linecap="round"/>
+  <rect x="328" y="368" width="64" height="54" rx="12" fill="#151E20" stroke="#57D8FF" stroke-width="3"/>
+  <path d="M342 388H378M342 404H370" stroke="#57D8FF" stroke-width="3" stroke-linecap="round"/>
+  <text x="34" y="40" fill="#57D8FF" font-family="monospace" font-size="12">/ops</text>
+  <text x="540" y="40" fill="#8D9A98" font-family="monospace" font-size="12">stable · 99.9%</text>
+  <text x="71" y="302" fill="#8D9A98" font-family="monospace" font-size="12">traffic</text>
+  <text x="586" y="302" fill="#8D9A98" font-family="monospace" font-size="12">users</text>
+  <text x="327" y="152" fill="#8D9A98" font-family="monospace" font-size="12">observe</text>
+  <text x="323" y="452" fill="#8D9A98" font-family="monospace" font-size="12">recover</text>
 </svg>

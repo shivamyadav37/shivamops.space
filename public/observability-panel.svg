@@ -1,30 +1,20 @@
 <svg width="960" height="420" viewBox="0 0 960 420" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="960" height="420" rx="18" fill="#0B1012"/>
-  <rect x="24" y="24" width="912" height="54" rx="8" fill="#111B1D"/>
-  <circle cx="50" cy="51" r="6" fill="#B7FF4A"/>
-  <text x="70" y="56" fill="#EDF4F1" font-family="monospace" font-size="14">production / observability</text>
-  <text x="795" y="56" fill="#57D8FF" font-family="monospace" font-size="12">LIVE</text>
-  <rect x="24" y="96" width="278" height="126" rx="8" fill="#10181A" stroke="#26383B"/>
-  <text x="44" y="124" fill="#8D9A98" font-family="monospace" font-size="11">availability</text>
-  <text x="44" y="172" fill="#B7FF4A" font-family="monospace" font-size="34" font-weight="700">99.9%</text>
-  <text x="44" y="198" fill="#8D9A98" font-family="monospace" font-size="11">SLO supported</text>
-  <rect x="322" y="96" width="278" height="126" rx="8" fill="#10181A" stroke="#26383B"/>
-  <text x="342" y="124" fill="#8D9A98" font-family="monospace" font-size="11">mean time to detect</text>
-  <text x="342" y="172" fill="#57D8FF" font-family="monospace" font-size="34" font-weight="700">-35%</text>
-  <text x="342" y="198" fill="#8D9A98" font-family="monospace" font-size="11">after alerting rebuild</text>
-  <rect x="620" y="96" width="316" height="126" rx="8" fill="#10181A" stroke="#26383B"/>
-  <text x="640" y="124" fill="#8D9A98" font-family="monospace" font-size="11">alert noise</text>
-  <text x="640" y="172" fill="#FFBD5C" font-family="monospace" font-size="34" font-weight="700">-40%</text>
-  <text x="640" y="198" fill="#8D9A98" font-family="monospace" font-size="11">more signal, less fatigue</text>
-  <path d="M42 344C105 317 134 331 188 294C247 254 291 313 352 277C408 244 449 283 505 248C568 209 611 263 675 224C740 185 789 233 848 193C876 174 899 180 918 164" stroke="#57D8FF" stroke-width="3" stroke-linecap="round"/>
-  <path d="M42 344C105 317 134 331 188 294C247 254 291 313 352 277C408 244 449 283 505 248C568 209 611 263 675 224C740 185 789 233 848 193C876 174 899 180 918 164V370H42V344Z" fill="url(#area)" opacity="0.45"/>
-  <path d="M42 370H918" stroke="#26383B"/>
-  <text x="42" y="395" fill="#596968" font-family="monospace" font-size="10">00:00</text>
-  <text x="856" y="395" fill="#596968" font-family="monospace" font-size="10">24:00</text>
-  <defs>
-    <linearGradient id="area" x1="480" y1="164" x2="480" y2="370" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#57D8FF"/>
-      <stop offset="1" stop-color="#57D8FF" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+  <text x="42" y="58" fill="#EDF4F1" font-family="monospace" font-size="15">production health</text>
+  <circle cx="896" cy="52" r="7" fill="#B7FF4A"/>
+  <rect x="42" y="96" width="250" height="112" rx="14" fill="#151E20"/>
+  <text x="66" y="130" fill="#8D9A98" font-family="monospace" font-size="12">availability</text>
+  <text x="66" y="180" fill="#B7FF4A" font-family="monospace" font-size="34" font-weight="700">99.9%</text>
+  <rect x="310" y="96" width="250" height="112" rx="14" fill="#151E20"/>
+  <text x="334" y="130" fill="#8D9A98" font-family="monospace" font-size="12">detection time</text>
+  <text x="334" y="180" fill="#57D8FF" font-family="monospace" font-size="34" font-weight="700">-35%</text>
+  <rect x="578" y="96" width="340" height="112" rx="14" fill="#151E20"/>
+  <text x="602" y="130" fill="#8D9A98" font-family="monospace" font-size="12">alert noise</text>
+  <text x="602" y="180" fill="#FFBD5C" font-family="monospace" font-size="34" font-weight="700">-40%</text>
+  <path d="M54 330C126 292 167 318 230 278C302 232 347 309 422 268C496 227 526 282 603 238C687 190 721 252 792 212C841 184 873 196 906 168" stroke="#57D8FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M54 330C126 292 167 318 230 278C302 232 347 309 422 268C496 227 526 282 603 238C687 190 721 252 792 212C841 184 873 196 906 168V358H54V330Z" fill="url(#signal)" opacity="0.3"/>
+  <path d="M54 358H906" stroke="#26383B"/>
+  <text x="54" y="386" fill="#596968" font-family="monospace" font-size="11">signal over time</text>
+  <text x="816" y="386" fill="#596968" font-family="monospace" font-size="11">24h</text>
+  <defs><linearGradient id="signal" x1="480" y1="168" x2="480" y2="358" gradientUnits="userSpaceOnUse"><stop stop-color="#57D8FF"/><stop offset="1" stop-color="#57D8FF" stop-opacity="0"/></linearGradient></defs>
 </svg>

@@ -85,6 +85,10 @@ const hobbies = [
     text: "Thinking deeply about reliable systems, operational clarity and what keeps production steady.",
   },
   {
+    title: "Homelab",
+    text: "Running small experiments at home to learn, break things safely and understand systems from the inside out.",
+  },
+  {
     title: "Electronics tinkering",
     text: "Taking circuits apart, following signals and learning by making small things work.",
   },
