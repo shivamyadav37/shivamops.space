@@ -1,69 +1,389 @@
-import Image from "next/image";
+const experience = [
+  {
+    period: "CURRENT",
+    role: "SRE / DevOps Engineer",
+    company: "Your Company",
+    description:
+      "Designing, automating and operating reliable cloud infrastructure and delivery platforms.",
+  },
+  {
+    period: "PREVIOUS",
+    role: "DevOps / TechOps Engineer",
+    company: "Previous Company",
+    description:
+      "Focused on infrastructure automation, CI/CD, observability and production reliability.",
+  },
+];
+
+const stack = [
+  "AWS",
+  "Kubernetes",
+  "Terraform",
+  "ArgoCD",
+  "Prometheus",
+  "Grafana",
+  "Docker",
+  "Linux",
+  "GitHub Actions",
+  "Python",
+  "Git",
+  "CI/CD",
+];
+
+const focus = [
+  {
+    number: "01",
+    title: "Reliability",
+    text: "Designing systems around availability, resilience, observability and operational excellence.",
+  },
+  {
+    number: "02",
+    title: "Automation",
+    text: "Replacing repetitive operational work with infrastructure-as-code and automated delivery.",
+  },
+  {
+    number: "03",
+    title: "Observability",
+    text: "Making systems measurable through metrics, dashboards, alerting and actionable signals.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      {/* NAVIGATION */}
+      <nav className="nav">
+        <div className="container nav-inner">
+          <a href="#" className="logo">
+            <span className="logo-mark">S</span>
+            <span>shivamops</span>
+          </a>
+
+          <div className="nav-links">
+            <a href="#experience">Experience</a>
+            <a href="#work">Work</a>
+            <a href="#stack">Stack</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <a
+            href="https://github.com/shivamyadav37"
+            target="_blank"
+            rel="noreferrer"
+            className="nav-github"
+          >
+            GitHub ↗
+          </a>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section className="hero">
+        <div className="container hero-grid">
+          <div className="hero-content">
+            <div className="eyebrow">
+              <span className="status-dot" />
+              AVAILABLE FOR GREAT ENGINEERING PROBLEMS
+            </div>
+
+            <h1>
+              Shivam
+              <br />
+              <span>Yadav.</span>
+            </h1>
+
+            <p className="hero-role">
+              SRE <span>·</span> DevOps <span>·</span> TechOps
+            </p>
+
+            <p className="hero-description">
+              I build, automate and operate reliable systems.
+              <br />
+              Infrastructure, delivery and everything between code and production.
+            </p>
+
+            <div className="hero-actions">
+              <a href="#contact" className="button button-primary">
+                Let's connect <span>↗</span>
+              </a>
+
+              <a
+                href="https://github.com/shivamyadav37"
+                target="_blank"
+                rel="noreferrer"
+                className="button button-secondary"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div className="hero-terminal">
+            <div className="terminal-header">
+              <div className="terminal-dots">
+                <span />
+                <span />
+                <span />
+              </div>
+              <span>~/shivamops</span>
+            </div>
+
+            <div className="terminal-body">
+              <p>
+                <span className="terminal-muted">$</span> whoami
+              </p>
+              <p className="terminal-output">shivam</p>
+
+              <p>
+                <span className="terminal-muted">$</span> cat role.txt
+              </p>
+              <p className="terminal-output">
+                Site Reliability Engineer
+              </p>
+
+              <p>
+                <span className="terminal-muted">$</span> uptime
+              </p>
+              <p className="terminal-output">
+                production: <strong>stable</strong>
+              </p>
+
+              <p>
+                <span className="terminal-muted">$</span> kubectl get pods
+              </p>
+
+              <div className="pod-row">
+                <span>api</span>
+                <span className="green">Running</span>
+              </div>
+              <div className="pod-row">
+                <span>worker</span>
+                <span className="green">Running</span>
+              </div>
+              <div className="pod-row">
+                <span>monitoring</span>
+                <span className="green">Running</span>
+              </div>
+
+              <p className="cursor-line">
+                <span className="terminal-muted">$</span> _
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="stats-section">
+        <div className="container stats">
+          <div>
+            <strong>04+</strong>
+            <span>Years in infrastructure</span>
+          </div>
+          <div>
+            <strong>AWS</strong>
+            <span>Cloud infrastructure</span>
+          </div>
+          <div>
+            <strong>K8s</strong>
+            <span>Container orchestration</span>
+          </div>
+          <div>
+            <strong>24/7</strong>
+            <span>Production mindset</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section className="section">
+        <div className="container about-grid">
+          <div className="section-label">
+            <span>01</span>
+            ABOUT
+          </div>
+
+          <div className="about-content">
+            <h2>
+              Between <em>code</em> and production.
+            </h2>
+
+            <p>
+              I work at the intersection of software engineering,
+              infrastructure and operations — building systems that are
+              easier to deploy, observe, scale and recover.
+            </p>
+
+            <p>
+              My work revolves around cloud infrastructure, Kubernetes,
+              infrastructure-as-code, continuous delivery and observability.
+            </p>
+
+            <div className="focus-grid">
+              {focus.map((item) => (
+                <div className="focus-card" key={item.number}>
+                  <span>{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section className="section section-dark" id="experience">
+        <div className="container">
+          <div className="section-label">
+            <span>02</span>
+            EXPERIENCE
+          </div>
+
+          <div className="experience-list">
+            {experience.map((item) => (
+              <article className="experience-item" key={item.period}>
+                <div className="experience-period">{item.period}</div>
+
+                <div>
+                  <h3>{item.role}</h3>
+                  <h4>{item.company}</h4>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WORK */}
+      <section className="section" id="work">
+        <div className="container">
+          <div className="section-label">
+            <span>03</span>
+            WHAT I WORK ON
+          </div>
+
+          <div className="work-heading">
+            <h2>
+              Systems should be
+              <br />
+              <em>boring.</em>
+            </h2>
+
+            <p>
+              The best infrastructure is predictable, observable and
+              automated enough that humans can focus on the problems that
+              actually matter.
+            </p>
+          </div>
+
+          <div className="work-grid">
+            <div className="work-card">
+              <span>01</span>
+              <h3>Cloud Infrastructure</h3>
+              <p>
+                Highly available AWS infrastructure designed for resilience,
+                scalability and operational simplicity.
+              </p>
+            </div>
+
+            <div className="work-card">
+              <span>02</span>
+              <h3>Platform Engineering</h3>
+              <p>
+                Kubernetes platforms, deployment workflows and tooling that
+                make shipping software easier for engineering teams.
+              </p>
+            </div>
+
+            <div className="work-card">
+              <span>03</span>
+              <h3>Observability</h3>
+              <p>
+                Metrics, dashboards, alerting and operational signals that
+                turn production behaviour into actionable information.
+              </p>
+            </div>
+
+            <div className="work-card">
+              <span>04</span>
+              <h3>Infrastructure Automation</h3>
+              <p>
+                Terraform, GitOps and CI/CD pipelines that turn infrastructure
+                changes into repeatable, reviewable workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STACK */}
+      <section className="section section-dark" id="stack">
+        <div className="container">
+          <div className="section-label">
+            <span>04</span>
+            STACK
+          </div>
+
+          <div className="stack-heading">
+            <h2>
+              Tools I use to
+              <br />
+              <em>ship & operate.</em>
+            </h2>
+          </div>
+
+          <div className="stack-list">
+            {stack.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="contact-section" id="contact">
+        <div className="container contact-content">
+          <div className="section-label">
+            <span>05</span>
+            CONTACT
+          </div>
+
+          <h2>
+            Have an interesting
+            <br />
+            <em>problem?</em>
+          </h2>
+
+          <p>
+            I'm always interested in difficult infrastructure problems,
+            distributed systems, reliability and automation.
           </p>
+
+          <div className="contact-links">
+            <a
+              href="https://github.com/shivamyadav37"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub ↗
+            </a>
+
+            <a href="mailto:hello@shivamops.space">
+              Email ↗
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* FOOTER */}
+      <footer>
+        <div className="container footer-inner">
+          <span>© {new Date().getFullYear()} Shivam Yadav</span>
+          <span>Built with Next.js · Deployed on GitHub Pages</span>
         </div>
-      </main>
-    </div>
+      </footer>
+    </main>
   );
 }
